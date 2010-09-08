@@ -12,6 +12,23 @@
 @implementation NSIpSubnetv4
 
 
+
+-(id)init
+{
+	return [self initwithsub:0 cidr:0];
+}
+
+-(id)initwithsub:(NSInteger)value cidr:(NSInteger)cidrvalue
+{
+	if (self = [super init])
+	{
+		mask = cidrvalue;
+		ip = [[NSIpv4 alloc] init];
+	}
+	return self;
+}
+
+
 -(void)setcidr:(NSInteger)value
 {
 	if ((value < 33) && (value >= 0))
@@ -68,11 +85,30 @@
 	return mask;
 }
 
+-(NSString *)mask
+{
+	return [NSString stringWithString:[self cidrtoString]];
+}
+-(NSString *)sub
+{
+	return [NSString stringWithString:[ip iptoString]];
+
+}
 
 +(Boolean)checkCidr:(NSInteger)value
 {
 	if ((value >= 0 ) && (value < 33)) 
 		return TRUE;
 	return FALSE;
+}
+
+-(void)setsub:(NSInteger)subValue mask:(NSInteger)maskvalue
+{
+	if ([NSIpSubnetv4 checkCidr:maskvalue] && [NSIpv4 checkIPInt:subValue])
+	{
+		
+		[ip setIpwithInt:(subValue & maskvalue)];
+		mask = maskvalue;
+	}
 }
 @end

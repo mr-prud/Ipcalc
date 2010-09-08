@@ -15,19 +15,27 @@
 }
 
 -(id)init;
+-(id)initwithString:(NSString *)stringValue;
+-(id)initwithint:(NSInteger)intValue;
+
 
 
 //Class Method
 +(Boolean)checkIPStr:(NSString *)string;
++(Boolean)checkIPInt:(NSInteger)value;
 
+
++(NSInteger)IpStringToInteger:(NSString *)string;
 
 //Instance Method
--(void)setip:(id)string;
+-(void)setIpwithInt:(NSInteger)value;
+-(void)setIpwithString:(NSString *)value;
 
 
--(NSString *)iptosString;
 
+-(NSString *)iptoString;
 -(NSInteger)ip;
+
 
 
 @end

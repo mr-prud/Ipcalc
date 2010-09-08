@@ -20,8 +20,7 @@
 }
 -(id)init
 {
-	
-	
+		
 	if ( self = [super init]) {
 	
 		CidrtostrTransformer *c2str;
@@ -31,51 +30,28 @@
 		
 		// register it with the name that we refer to it with
 		[NSValueTransformer setValueTransformer:c2str forName:@"CidrtostrTransformer"];
-		cidrmode = MASK;
 
 		[self setValue:[NSNumber numberWithInt:24]  forKey:@"cidr"];
 		
-		monIpdata = [[[ipdata alloc] init]autorelease];
+		monIpdata = [[[NSIpSubnetv4 alloc] init]autorelease];
 		[monIpdata retain];
 	}
 	
 	return self;
 	
 }
--(IBAction) ToggleMaskMode:(id)sender
-{
-	NSRect  cadre;
-	
-	
-		if (cidrmode == CIDR)
-		{
-			cidrmode = MASK;
-			[Bcidrmode setTitle:@"Mask Mode"];
-			cadre = [Tmask frame];
-			cadre.size.width = 102;
-			[Tmask setFrame:cadre];
-		}else
-		{
-			cidrmode = CIDR;
-			[Bcidrmode setTitle:@"Cidr Mode"];
-			cadre = [Tmask frame];
-			cadre.size.width = 20;
-			[Tmask setFrame:cadre];
 
-	
-		}
-}
 
 -(IBAction) Calculate:(id)sender{
 
-	//Controle les champs;
+	//On envoie les data au NSIpSubnet
 	
-	[monIpdata setcidr:[Tmask integerValue]];
-	[monIpdata setipaddr:[Tipaddr stringValue]];
 	
+	[monIpdata setsub:[NSIpv4 IpStringToInteger:[Tipaddr stringValue]] mask:[Tmask integerValue]];
 	
 	//checl l'addip
 
+	
 	NSRect frame = [mawin frame];
 	frame.size.height=194;
 	
@@ -87,6 +63,7 @@
 	[resultbox setFrame:frame];
 	[[mavue animator] replaceSubview:ipbox with:resultbox];
 
+	
 	//[Bretour setHidden:FALSE];
 	
 	
@@ -97,8 +74,7 @@
 
 -(IBAction) refreshmask:(id)sender
 {
-				
-	
+
 }
 						
 -(IBAction) decCidr:(id)sender
@@ -112,10 +88,9 @@
 	[Tmask setIntValue:value];
 	
 }
-
 -(IBAction) checkIp:(id)sender
 {
-	if ([ipdata checkIPStr:[Tipaddr stringValue]]) {
+	if ([NSIpv4 checkIPStr:[Tipaddr stringValue]]) {
 		
 		NSLog (@"L'ip est bonne");
 		[Tipaddr setBackgroundColor:[NSColor greenColor ]];

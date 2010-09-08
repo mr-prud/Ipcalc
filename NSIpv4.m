@@ -12,14 +12,32 @@
 @implementation NSIpv4
 
 
+//*************
+// Methode d'init
+//*************
 -(id) init
 {
-	[super init];
-	ip = 0;
-	
+	return [self initwithint:0];
+}
+
+-(id)initwithString:(NSString *)stringValue
+{
+	return [self initwithint:[NSIpv4 IpStringToInteger:stringValue]];
+}
+
+-(id)initwithint:(NSInteger)intValue
+{
+	if (self = [super init])
+	{
+		ip = intValue;
+	}
 	return self;
 }
 
+
+//*************
+// methode de classe
+//*************
 
 +(Boolean)checkIPStr:(NSString *)string
 {	
@@ -33,36 +51,58 @@
 	return FALSE;
 }
 
--(void)setip:(id)value
++(Boolean)checkIPInt:(NSInteger)value
 {
-	NSString * string;
+	return ((value <=0) || (value<= 0xffffffff));
+}
+
++(NSInteger)IpStringToInteger:(NSString *)string;
+{
+	NSInteger rtValue = 0;
 	
-	
-	if ( [value isKindOfClass:[NSString class]])
-	{
-	
-		[string stringWithString:(NSString *)value];
-		
-	if ([NSIpv4 checkIPStr:string])
-	{
-		NSScanner * scan = [NSScanner scannerWithString:string];
-		NSString * ipval;
-		NSInteger leftShift=24, iptmp = 0;	
-		while (([scan isAtEnd] == FALSE) && (leftShift >= 0))
+		if ([NSIpv4 checkIPStr:string])
 		{
-			[scan scanUpToString:@"." intoString:&ipval];
-			[scan scanString:@"." intoString:NULL] ;
-			iptmp = iptmp | ([ipval integerValue] << leftShift);
-			leftShift -= 8;			
+			NSScanner * scan = [NSScanner scannerWithString:string];
+			NSString * ipval;
+			NSInteger leftShift=24, iptmp = 0;	
+			while (([scan isAtEnd] == FALSE) && (leftShift >= 0))
+			{
+				[scan scanUpToString:@"." intoString:&ipval];
+				[scan scanString:@"." intoString:NULL] ;
+				iptmp = iptmp | ([ipval integerValue] << leftShift);
+				leftShift -= 8;			
+			}
+			rtValue = iptmp;
 		}
-		ip = iptmp;
-	}
+	
+	return rtValue;
 		
-	}
+	
 	
 }
 
--(NSString *)iptosString
+
+//*************
+// Accesseurs
+//*************
+
+-(void)setIpwithString:(NSString *)value
+{
+	
+	ip = [NSIpv4 IpStringToInteger:value];
+		
+		
+}
+
+-(void)setIpwithInt:(NSInteger)value
+{
+	if ((value <=0) || (value<= 0xffffffff))
+		ip = value;
+}
+
+
+
+-(NSString *)iptoString
 {
 	return nil;
 }

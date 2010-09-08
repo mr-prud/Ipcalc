@@ -19,14 +19,24 @@
 	
 }
 
+//Metod d'init
+-(id)init;
+-(id)initwithsub:(NSInteger)value cidr:(NSInteger)cidrvalue;
+
+//Metode de class
 +(Boolean)checkCidr:(NSInteger)value;
 +(NSString *) cidrtoString:(NSInteger)value;
--(NSString *) cidrtoString; 
 
 
 //accesseur under control
+-(void)setsub:(NSInteger)subValue mask:(NSInteger)maskvalue;
 -(void)setcidr:(NSInteger)value;
+
+-(NSString *) cidrtoString; 
 -(NSInteger)cidr;
+-(NSString *)mask;
+-(NSString *)sub;
+
 
 
 
