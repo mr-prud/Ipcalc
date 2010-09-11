@@ -104,7 +104,10 @@
 
 -(NSString *)iptoString
 {
-	return nil;
+	return [NSString stringWithFormat:@"%d.%d.%d.%d",((ip & 0xff000000) >> 24)
+			,((ip & 0xff0000) >> 16)
+			,((ip & 0xff00) >> 8)
+			,(ip & 0xff)];
 }
 
 -(NSInteger)ip

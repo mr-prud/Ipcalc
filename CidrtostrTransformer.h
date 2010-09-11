@@ -7,6 +7,7 @@
 //
 
 #import <Cocoa/Cocoa.h>
+#import "NSIpSubnetv4.h"
 
 
 @interface CidrtostrTransformer : NSValueTransformer  {

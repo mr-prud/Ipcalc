@@ -23,19 +23,33 @@
 -(id)init;
 -(id)initwithsub:(NSInteger)value cidr:(NSInteger)cidrvalue;
 
-//Metode de class
+//Toolbox de class
 +(Boolean)checkCidr:(NSInteger)value;
 +(NSString *) cidrtoString:(NSInteger)value;
++(NSInteger)masktoint:(NSInteger)value;
+
 
 
 //accesseur under control
--(void)setsub:(NSInteger)subValue mask:(NSInteger)maskvalue;
+-(void)setsubfromip:(NSInteger)subValue mask:(NSInteger)maskvalue;
 -(void)setcidr:(NSInteger)value;
 
 -(NSString *) cidrtoString; 
 -(NSInteger)cidr;
 -(NSString *)mask;
 -(NSString *)sub;
+
+
+//data
+-(NSInteger)net;
+-(NSInteger)firstIp;
+-(NSInteger)LastIp;
+-(NSInteger)broadcast;
+-(NSInteger)NumberofIp;
+
+
+
+
 
 
 

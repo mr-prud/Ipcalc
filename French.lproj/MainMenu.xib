@@ -11,10 +11,10 @@
 			<string key="NS.object.0">788</string>
 		</object>
 		<array class="NSMutableArray" key="IBDocument.EditedObjectIDs">
-			<integer value="29"/>
+			<integer value="372"/>
+			<integer value="57"/>
 			<integer value="796"/>
 			<integer value="617"/>
-			<integer value="372"/>
 		</array>
 		<array key="IBDocument.PluginDependencies">
 			<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
@@ -2614,6 +2614,14 @@
 					</object>
 					<int key="connectionID">837</int>
 				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBActionConnection" key="connection">
+						<string key="label">mesPrefs:</string>
+						<reference key="source" ref="429664795"/>
+						<reference key="destination" ref="609285721"/>
+					</object>
+					<int key="connectionID">838</int>
+				</object>
 			</array>
 			<object class="IBMutableOrderedSet" key="objectRecords">
 				<array key="orderedObjects">
@@ -4123,7 +4131,7 @@
 				<string key="517.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
 				<string key="56.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
 				<integer value="1" key="56.ImportedFromIB2"/>
-				<string key="57.IBEditorWindowLastContentRect">{{286, 129}, {275, 183}}</string>
+				<string key="57.IBEditorWindowLastContentRect">{{392, 708}, {233, 183}}</string>
 				<string key="57.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
 				<integer value="1" key="57.ImportedFromIB2"/>
 				<string key="57.editorWindowContentRectSynchronizationRect">{{23, 794}, {245, 183}}</string>
@@ -4208,28 +4216,30 @@
 			<nil key="activeLocalization"/>
 			<dictionary class="NSMutableDictionary" key="localizations"/>
 			<nil key="sourceID"/>
-			<int key="maxID">837</int>
+			<int key="maxID">838</int>
 		</object>
 		<object class="IBClassDescriber" key="IBDocument.Classes">
 			<array class="NSMutableArray" key="referencedPartialClassDescriptions">
 				<object class="IBPartialClassDescription">
 					<string key="className">Ipv4controller</string>
 					<string key="superclassName">NSObject</string>
-					<object class="NSMutableDictionary" key="actions">
-						<string key="NS.key.0">Calculate:</string>
-						<string key="NS.object.0">id</string>
-					</object>
-					<object class="NSMutableDictionary" key="actionInfosByName">
-						<string key="NS.key.0">Calculate:</string>
-						<object class="IBActionInfo" key="NS.object.0">
+					<dictionary class="NSMutableDictionary" key="actions">
+						<string key="Calculate:">id</string>
+						<string key="mesPrefs:">id</string>
+					</dictionary>
+					<dictionary class="NSMutableDictionary" key="actionInfosByName">
+						<object class="IBActionInfo" key="Calculate:">
 							<string key="name">Calculate:</string>
 							<string key="candidateClassName">id</string>
 						</object>
-					</object>
+						<object class="IBActionInfo" key="mesPrefs:">
+							<string key="name">mesPrefs:</string>
+							<string key="candidateClassName">id</string>
+						</object>
+					</dictionary>
 					<dictionary class="NSMutableDictionary" key="outlets">
 						<string key="Bcalculate">NSButton</string>
 						<string key="Bcidrmode">NSButton</string>
-						<string key="Bretour">NSButton</string>
 						<string key="TPLast">NSTextField</string>
 						<string key="TPSize">NSTextField</string>
 						<string key="TPfirst">NSTextField</string>
@@ -4250,10 +4260,6 @@
 						</object>
 						<object class="IBToOneOutletInfo" key="Bcidrmode">
 							<string key="name">Bcidrmode</string>
-							<string key="candidateClassName">NSButton</string>
-						</object>
-						<object class="IBToOneOutletInfo" key="Bretour">
-							<string key="name">Bretour</string>
 							<string key="candidateClassName">NSButton</string>
 						</object>
 						<object class="IBToOneOutletInfo" key="TPLast">
