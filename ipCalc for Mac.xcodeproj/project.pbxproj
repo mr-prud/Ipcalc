@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 45;
+	objectVersion = 46;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -12,6 +12,7 @@
 		33135B7412327DDC007A834D /* NSIpv4.m in Sources */ = {isa = PBXBuildFile; fileRef = 33135B7312327DDC007A834D /* NSIpv4.m */; };
 		33135B7F1232818F007A834D /* NSIpSubnetv4.m in Sources */ = {isa = PBXBuildFile; fileRef = 33135B7E1232818F007A834D /* NSIpSubnetv4.m */; };
 		332FF7C5123BAC7800CDE568 /* local.strings in Resources */ = {isa = PBXBuildFile; fileRef = 332FF7C4123BAC7800CDE568 /* local.strings */; };
+		3343717E124F761500E72DB7 /* app_icon.icns in Resources */ = {isa = PBXBuildFile; fileRef = 3343717D124F761500E72DB7 /* app_icon.icns */; };
 		339462431225C9D000EB4D0E /* CidrtostrTransformer.m in Sources */ = {isa = PBXBuildFile; fileRef = 339462421225C9D000EB4D0E /* CidrtostrTransformer.m */; };
 		33BE63E2123BB83D0081E132 /* Preference.xib in Resources */ = {isa = PBXBuildFile; fileRef = 33BE63E1123BB83D0081E132 /* Preference.xib */; };
 		33BE63EA123BB9010081E132 /* Preference.m in Sources */ = {isa = PBXBuildFile; fileRef = 33BE63E9123BB9010081E132 /* Preference.m */; };
@@ -48,6 +49,7 @@
 		332FF795123B8C1700CDE568 /* French */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = French; path = French.lproj/MainMenu.xib; sourceTree = "<group>"; };
 		332FF7C2123BAC6E00CDE568 /* English */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; name = English; path = English.lproj/local.strings; sourceTree = "<group>"; };
 		332FF7C6123BAC7F00CDE568 /* French */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = French; path = French.lproj/local.strings; sourceTree = "<group>"; };
+		3343717D124F761500E72DB7 /* app_icon.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = app_icon.icns; sourceTree = "<group>"; };
 		339462411225C9D000EB4D0E /* CidrtostrTransformer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CidrtostrTransformer.h; sourceTree = "<group>"; };
 		339462421225C9D000EB4D0E /* CidrtostrTransformer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CidrtostrTransformer.m; sourceTree = "<group>"; };
 		33BE63E3123BB8450081E132 /* French */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = French; path = French.lproj/Preference.xib; sourceTree = "<group>"; };
@@ -150,6 +152,7 @@
 		29B97317FDCFA39411CA2CEA /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				3343717D124F761500E72DB7 /* app_icon.icns */,
 				33BE64AD123D13410081E132 /* about.html */,
 				8D1107310486CEB800E47090 /* ipCalc_for_Mac-Info.plist */,
 				089C165CFE840E0CC02AAC07 /* InfoPlist.strings */,
@@ -225,8 +228,11 @@
 /* Begin PBXProject section */
 		29B97313FDCFA39411CA2CEA /* Project object */ = {
 			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = YES;
+			};
 			buildConfigurationList = C01FCF4E08A954540054247B /* Build configuration list for PBXProject "ipCalc for Mac" */;
-			compatibilityVersion = "Xcode 3.1";
+			compatibilityVersion = "Xcode 3.2";
 			hasScannedForEncodings = 1;
 			knownRegions = (
 				English,
@@ -258,6 +264,7 @@
 				33BE648E123CFAAA0081E132 /* README in Resources */,
 				33BE6490123CFF7E0081E132 /* changelog in Resources */,
 				33BE64AE123D13410081E132 /* about.html in Resources */,
+				3343717E124F761500E72DB7 /* app_icon.icns in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -371,14 +378,14 @@
 				ARCHS = "$(ARCHS_STANDARD_32_64_BIT)";
 				EXECUTABLE_PREFIX = "";
 				GCC_C_LANGUAGE_STANDARD = gnu99;
-				GCC_VERSION = "";
+				GCC_VERSION = com.apple.compilers.llvmgcc42;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				MACOSX_DEPLOYMENT_TARGET = 10.4;
+				MACOSX_DEPLOYMENT_TARGET = 10.5;
 				PREBINDING = NO;
 				PRODUCT_NAME = Ipcalc;
 				SDKROOT = macosx10.6;
-				VALIDATE_PRODUCT = NO;
+				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
 		};
