@@ -14,38 +14,38 @@
 @interface NSIpSubnetv4 : NSObject {
 
 	
-	NSInteger mask:32;
+	int mask:32;
 	NSIpv4 *ip;
 	
 }
 
 //Metod d'init
 -(id)init;
--(id)initwithsub:(NSInteger)value cidr:(NSInteger)cidrvalue;
+-(id)initwithsub:(int)value cidr:(int)cidrvalue;
 
 //Toolbox de class
-+(Boolean)checkCidr:(NSInteger)value;
-+(NSString *) cidrtoString:(NSInteger)value;
-+(NSInteger)masktoint:(NSInteger)value;
++(Boolean)checkCidr:(int)value;
++(NSString *) cidrtoString:(int)value;
++(int)masktoint:(int)value;
 
 
 
 //accesseur under control
--(void)setsubfromip:(NSInteger)subValue mask:(NSInteger)maskvalue;
--(void)setcidr:(NSInteger)value;
+-(void)setsubfromip:(int)subValue mask:(int)maskvalue;
+-(void)setcidr:(int)value;
 
 -(NSString *) cidrtoString; 
--(NSInteger)cidr;
+-(int)cidr;
 -(NSString *)mask;
 -(NSString *)sub;
 
 
 //data
--(NSInteger)net;
--(NSInteger)firstIp;
--(NSInteger)LastIp;
--(NSInteger)broadcast;
--(NSInteger)NumberofIp;
+-(int)net;
+-(int)firstIp;
+-(int)LastIp;
+-(int)broadcast;
+-(int)NumberofIp;
 
 
 

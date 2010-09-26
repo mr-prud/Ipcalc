@@ -7,12 +7,17 @@
 //
 
 #import <Cocoa/Cocoa.h>
+#import <WebKit/WebKit.h>
 
 
 @interface AboutWin : NSWindowController {
 
+	IBOutlet NSTextField * Tversion;
+	IBOutlet WebView * Tabout;
+	IBOutlet NSBox * lavue;
 }
 -(id)init;
 -(void)windowDidLoad;
 
 @end
+

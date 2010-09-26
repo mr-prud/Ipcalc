@@ -25,6 +25,7 @@
 {
 	[Tmaskdefaut setIntValue:[self maskdefault]];
 }
+
 -(IBAction)Maskchange:(id)sender
 {
 	NSUserDefaults * defaults = [NSUserDefaults standardUserDefaults];

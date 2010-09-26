@@ -14,17 +14,10 @@
 
 +(void)initialize
 {
-	NSMutableDictionary * valeurdefault = [NSMutableDictionary dictionary];
-	[valeurdefault setObject:[NSNumber numberWithInt:24] forKey:@"maskdefault"];
-	
-	[[NSUserDefaults standardUserDefaults]
-	 registerDefaults:valeurdefault];
-	
-	NSLog (@"Valeur par default écritent");
-	
 }
 
-- (void)awakeFromNib {
+- (void)awakeFromNib 
+{
 
 	//On charge aussi les valeurs par défaults
 	NSUserDefaults * defaults = [NSUserDefaults standardUserDefaults];
@@ -40,6 +33,7 @@
 
 	
 }
+
 -(id)init
 {
 		
@@ -54,8 +48,8 @@
 	
 }
 
-
--(IBAction) Calculate:(id)sender{
+-(IBAction) Calculate:(id)sender
+{
 
 	
 	
@@ -123,5 +117,15 @@
 	[mawinpref showWindow:self];
 }
 
+-(IBAction) about:(id)sender
+{
+	if (maaboutwin == nil)
+	{
+		maaboutwin = [[AboutWin alloc] init];
+	}
+	[maaboutwin showWindow:self];
+	
+	
+}
 
 @end

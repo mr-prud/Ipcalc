@@ -11,6 +11,7 @@
 #import "ipv4.h"
 #import "CidrtostrTransformer.h"
 #import "Preference.h"
+#import "AboutWin.h"
 
 
 
@@ -53,6 +54,7 @@
 	NSIpSubnetv4 * monsubnet;
 	
 	Preference * mawinpref;
+	AboutWin * maaboutwin;
 	
 	
 	
@@ -62,6 +64,7 @@
 -(id)init;
 -(IBAction) Calculate:(id)sender;
 -(IBAction) mesPrefs:(id)sender;
+-(IBAction) about:(id)sender;
 
 +(void)initialize;
 

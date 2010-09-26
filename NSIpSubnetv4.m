@@ -18,7 +18,7 @@
 	return [self initwithsub:0 cidr:0];
 }
 
--(id)initwithsub:(NSInteger)value cidr:(NSInteger)cidrvalue
+-(id)initwithsub:(int)value cidr:(int)cidrvalue
 {
 	if (self = [super init])
 	{
@@ -28,11 +28,11 @@
 	return self;
 }
 
--(void)setcidr:(NSInteger)value
+-(void)setcidr:(int)value
 {
 	if ((value < 33) && (value >= 0))
 	{
-		NSInteger i, testVal;
+		int i, testVal;
 		for (i=0,testVal=0;i<value;i++,testVal = (testVal >> 1) | 2147483648);
 		mask = testVal;
 		
@@ -40,17 +40,17 @@
 	
 }
 
-+(NSString *) cidrtoString:(NSInteger)value 
++(NSString *) cidrtoString:(int)value 
 {
 	
 	if (value == 0) 
 		return [NSString stringWithString:@"000.000.000.000"];
 
-	NSInteger octet1,octet2,octet3,octet4;
-	NSInteger debut=2147483648;
-	NSInteger i;
+	int octet1,octet2,octet3,octet4;
+	int debut=2147483648;
+	int i;
 	for (i=1;i<value;i++,debut = (debut >> 1) | 2147483648);
-	octet1 = debut >> 24;
+	octet1 = (debut & 0xff000000) >> 24;
 	octet2 = (debut & 0xff0000) >> 16;
 	octet3 = (debut & 0xff00) >> 8;
 	octet4 = (debut & 0xff);
@@ -67,14 +67,14 @@
 	
 }
 
--(NSInteger)cidr
+-(int)cidr
 {
 	return mask;
 }
 
-+(NSInteger)masktoint:(NSInteger)value
++(int)masktoint:(int)value
 {
-	NSInteger i,debut;
+	int i,debut;
 	
 	for (i=1;i<value;i++,debut = (debut >> 1) | 2147483648);
 	return debut;
@@ -91,14 +91,14 @@
 
 }
 
-+(Boolean)checkCidr:(NSInteger)value
++(Boolean)checkCidr:(int)value
 {
 	if ((value >= 0 ) && (value < 33)) 
 		return TRUE;
 	return FALSE;
 }
 
--(void)setsubfromip:(NSInteger)subValue mask:(NSInteger)maskvalue
+-(void)setsubfromip:(int)subValue mask:(int)maskvalue
 {
 
 	if ([NSIpSubnetv4 checkCidr:maskvalue] && [NSIpv4 checkIPInt:subValue])
@@ -109,12 +109,12 @@
 	}
 }
 
--(NSInteger)net
+-(int)net
 {
 	return [ip ip];
 }
 
--(NSInteger)firstIp
+-(int)firstIp
 {
 	
 	if ((mask == 32)|| (mask == 31))
@@ -123,7 +123,7 @@
 		return ([ip ip]+1);
 
 }
--(NSInteger)LastIp
+-(int)LastIp
 {
 	if ((mask == 32)|| (mask == 31))
 		return [ip ip];
@@ -132,7 +132,7 @@
 	
 }
 
--(NSInteger)broadcast
+-(int)broadcast
 {
 	if ((mask == 32)|| (mask == 31))
 		return [ip ip];
@@ -141,9 +141,9 @@
 	
 }
 
--(NSInteger)NumberofIp
+-(int)NumberofIp
 {
-	NSInteger value = 0;
+	int value = 0;
 	
 		if (mask == 32)
 			value = 1;

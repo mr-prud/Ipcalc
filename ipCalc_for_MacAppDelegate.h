@@ -10,8 +10,11 @@
 
 @interface ipCalc_for_MacAppDelegate : NSObject <NSApplicationDelegate> {
     NSWindow *window;
+    NSMenu * monmenu;
 }
 
 @property (assign) IBOutlet NSWindow *window;
+@property (assign) IBOutlet NSMenu *monmenu;
+
 
 @end

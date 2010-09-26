@@ -21,7 +21,15 @@
 
 -(void)windowDidLoad
 {
+	NSString * tempstr = [[NSString alloc]initWithString:[Tversion stringValue]];
+	
+	[Tversion setStringValue:[NSString stringWithFormat:tempstr, [[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleGetInfoString"],[[[NSBundle mainBundle]infoDictionary]objectForKey:@"CFBundleShortVersionString"]]];
 
+	[[Tabout mainFrame] loadRequest:[NSURLRequest 
+									  requestWithURL:[NSURL 
+													  fileURLWithPath:[[NSBundle mainBundle]
+																	   pathForResource:@"about" 
+																	   ofType:@"html"]]]];
 }
 
 @end

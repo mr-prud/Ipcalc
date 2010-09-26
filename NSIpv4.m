@@ -25,7 +25,7 @@
 	return [self initwithint:[NSIpv4 IpStringToInteger:stringValue]];
 }
 
--(id)initwithint:(NSInteger)intValue
+-(id)initwithint:(int)intValue
 {
 	if (self = [super init])
 	{
@@ -51,20 +51,20 @@
 	return FALSE;
 }
 
-+(Boolean)checkIPInt:(NSInteger)value
++(Boolean)checkIPInt:(int)value
 {
 	return ((value <=0) || (value<= 0xffffffff));
 }
 
-+(NSInteger)IpStringToInteger:(NSString *)string;
++(int)IpStringToInteger:(NSString *)string;
 {
-	NSInteger rtValue = 0;
+	int rtValue = 0;
 	
 		if ([NSIpv4 checkIPStr:string])
 		{
 			NSScanner * scan = [NSScanner scannerWithString:string];
 			NSString * ipval;
-			NSInteger leftShift=24, iptmp = 0;	
+			int leftShift=24, iptmp = 0;	
 			while (([scan isAtEnd] == FALSE) && (leftShift >= 0))
 			{
 				[scan scanUpToString:@"." intoString:&ipval];
@@ -94,7 +94,7 @@
 		
 }
 
--(void)setIpwithInt:(NSInteger)value
+-(void)setIpwithInt:(int)value
 {
 	if ((value <=0) || (value<= 0xffffffff))
 		ip = value;
@@ -110,7 +110,7 @@
 			,(ip & 0xff)];
 }
 
--(NSInteger)ip
+-(int)ip
 {
 	return ip;
 }

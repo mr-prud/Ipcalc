@@ -23,7 +23,7 @@
 
 - (id)transformedValue:(id)value
 {
-    int cidr;
+    uint cidr;
 	
     if (value == nil) return nil;
 	
