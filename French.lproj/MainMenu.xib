@@ -2,21 +2,28 @@
 <archive type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="8.00">
 	<data>
 		<int key="IBDocument.SystemTarget">1050</int>
-		<string key="IBDocument.SystemVersion">10F569</string>
-		<string key="IBDocument.InterfaceBuilderVersion">788</string>
-		<string key="IBDocument.AppKitVersion">1038.29</string>
-		<string key="IBDocument.HIToolboxVersion">461.00</string>
+		<string key="IBDocument.SystemVersion">10J567</string>
+		<string key="IBDocument.InterfaceBuilderVersion">823</string>
+		<string key="IBDocument.AppKitVersion">1038.35</string>
+		<string key="IBDocument.HIToolboxVersion">462.00</string>
 		<object class="NSMutableDictionary" key="IBDocument.PluginVersions">
 			<string key="NS.key.0">com.apple.InterfaceBuilder.CocoaPlugin</string>
-			<string key="NS.object.0">788</string>
+			<string key="NS.object.0">823</string>
 		</object>
 		<array class="NSMutableArray" key="IBDocument.EditedObjectIDs">
+<<<<<<< HEAD
+=======
+			<integer value="802"/>
+>>>>>>> devel
 			<integer value="886"/>
 		</array>
 		<array key="IBDocument.PluginDependencies">
 			<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 		</array>
-		<dictionary class="NSMutableDictionary" key="IBDocument.Metadata"/>
+		<object class="NSMutableDictionary" key="IBDocument.Metadata">
+			<string key="NS.key.0">PluginDependencyRecalculationVersion</string>
+			<integer value="1" key="NS.object.0"/>
+		</object>
 		<array class="NSMutableArray" key="IBDocument.RootObjects" id="1048">
 			<object class="NSCustomObject" id="1021">
 				<string key="NSClassName">NSApplication</string>
@@ -336,7 +343,7 @@
 				<bool key="NSSharedInstance">YES</bool>
 			</object>
 			<object class="NSBox" id="282565657">
-				<nil key="NSNextResponder"/>
+				<reference key="NSNextResponder"/>
 				<int key="NSvFlags">12</int>
 				<array class="NSMutableArray" key="NSSubviews">
 					<object class="NSView" id="621851180">
@@ -460,6 +467,7 @@
 					</object>
 				</array>
 				<string key="NSFrameSize">{197, 81}</string>
+				<reference key="NSSuperview"/>
 				<int key="NSViewLayerContentsRedrawPolicy">2</int>
 				<string key="NSOffsets">{0, 0}</string>
 				<object class="NSTextFieldCell" key="NSTitleCell">
@@ -1078,6 +1086,17 @@
 					</object>
 					<int key="connectionID">1026</int>
 				</object>
+<<<<<<< HEAD
+=======
+				<object class="IBConnectionRecord">
+					<object class="IBActionConnection" key="connection">
+						<string key="label">Calculate:</string>
+						<reference key="source" ref="429664795"/>
+						<reference key="destination" ref="558091636"/>
+					</object>
+					<int key="connectionID">1027</int>
+				</object>
+>>>>>>> devel
 			</array>
 			<object class="IBMutableOrderedSet" key="objectRecords">
 				<array key="orderedObjects">
@@ -1325,10 +1344,10 @@
 						<reference key="object" ref="282565657"/>
 						<array class="NSMutableArray" key="children">
 							<reference ref="382910252"/>
-							<reference ref="195340550"/>
 							<reference ref="690425337"/>
 							<reference ref="767890271"/>
 							<reference ref="727886506"/>
+							<reference ref="195340550"/>
 						</array>
 						<reference key="parent" ref="0"/>
 					</object>
@@ -1659,7 +1678,10 @@
 				<string key="1019.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
 				<string key="1020.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
 				<integer value="1" key="1020.ImportedFromIB2"/>
+<<<<<<< HEAD
 				<string key="1022.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
+=======
+>>>>>>> devel
 				<string key="1025.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
 				<string key="371.IBEditorWindowLastContentRect">{{220, 604}, {231, 117}}</string>
 				<string key="371.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
@@ -1702,6 +1724,9 @@
 				<string key="796.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
 				<string key="797.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
 				<string key="798.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
+				<object class="NSAffineTransform" key="798.IBViewBoundsToFrameTransform">
+					<bytes key="NSTransformStruct">P4AAAL+AAABDDAAAwkwAAA</bytes>
+				</object>
 				<string key="799.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
 				<real value="4" key="799.IBViewIntegration.shadowBlurRadius"/>
 				<object class="NSColor" key="799.IBViewIntegration.shadowColor">
@@ -1775,7 +1800,11 @@
 			<nil key="activeLocalization"/>
 			<dictionary class="NSMutableDictionary" key="localizations"/>
 			<nil key="sourceID"/>
+<<<<<<< HEAD
 			<int key="maxID">1026</int>
+=======
+			<int key="maxID">1027</int>
+>>>>>>> devel
 		</object>
 		<object class="IBClassDescriber" key="IBDocument.Classes">
 			<array class="NSMutableArray" key="referencedPartialClassDescriptions">

@@ -26,6 +26,7 @@
 
 
 +(int)IpStringToInteger:(NSString *)string;
++(NSString *)NumIptoString:(int)value;
 
 //Instance Method
 -(void)setIpwithInt:(int)value;
