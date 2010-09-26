@@ -10,51 +10,64 @@
 #import <QuartzCore/QuartzCore.h>
 #import "ipv4.h"
 #import "CidrtostrTransformer.h"
+#import "Preference.h"
+#import "AboutWin.h"
 
 
 
 
 @interface Ipv4controller : NSObject {
 	
-	IBOutlet NSBox *boite;
-	NSMutableArray * mesvuesctrl;
-	
-
-//Boite de saisie
-//=================	
+	//Boite de saisie
+	//=================	
 	//Champ entrée
 	IBOutlet NSTextField * Tipaddr;
 	IBOutlet NSTextField * Tmask;
-	IBOutlet NSTextField *Tmasklong;
 	
 	//bouton
 	IBOutlet NSButton * Bcidrmode;
 	IBOutlet NSButton * Bcalculate;
 	
-	//boite
-	IBOutlet NSBox *ipbox;
-	IBOutlet NSBox *resultbox;
+	
+	//Boite de print
+	//=================	
+	IBOutlet NSTextField * TPnet;
+	IBOutlet NSTextField * TPmask;
+	IBOutlet NSTextField * TPfirst;
+	IBOutlet NSTextField * TPLast;
+	IBOutlet NSTextField * Tbroadcast;
+	IBOutlet NSTextField * TPSize;
+
+	
+	
 	IBOutlet NSView *mavue;
 	IBOutlet NSWindow *mawin;
-
-
-	IBOutlet NSButton * Bretour;
+	//IBOutlet NSButton * Bretour;
 	
+
+	IBOutlet NSBox * monsubnetsaisie;
+	IBOutlet NSBox * monsubnetprint;
+	
+
 	NSInteger	cidrmode,cidr;
-	
 	CATransition * matransition;
+	NSIpSubnetv4 * monsubnet;
 	
-	NSIpSubnetv4 * monIpdata;
+	Preference * mawinpref;
+	AboutWin * maaboutwin;
+	
+	
 	
 	//CidrtostrTransformer * c2str;
 	
 }
 -(id)init;
--(IBAction) checkIp:(id)sender;
 -(IBAction) Calculate:(id)sender;
--(IBAction) refreshmask:(id)sender;
+-(IBAction) mesPrefs:(id)sender;
+-(IBAction) about:(id)sender;
+
++(void)initialize;
 
 
 
-@property(readwrite, assign) NSInteger cidr;
 @end

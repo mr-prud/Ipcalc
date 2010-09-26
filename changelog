@@ -1,0 +1,12 @@
+
+
+v0.11
+--------
++ Bug fixed on 32 bits arch
+- Add Custom about win
+- Add Pref win
+- Add defaults pref, and user pref
+
+V0.1
+----------
+First release

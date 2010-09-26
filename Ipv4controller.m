@@ -11,97 +11,121 @@
 
 @implementation Ipv4controller
 
-- (void)awakeFromNib {
 
-	[mavue addSubview:ipbox];
-	[mavue setWantsLayer:YES];
-	
-	NSLog (@"Je me charge");
++(void)initialize
+{
 }
+
+- (void)awakeFromNib 
+{
+
+	//On charge aussi les valeurs par défaults
+	NSUserDefaults * defaults = [NSUserDefaults standardUserDefaults];
+	[Tmask setIntValue:[defaults integerForKey:@"maskdefault"]];
+	
+	[mavue addSubview:monsubnetsaisie];
+	NSRect frame = [monsubnetsaisie frame];
+	frame.origin.x = 17;	
+	frame.origin.y = 16;
+	
+	[monsubnetsaisie setFrame:frame];
+	[mavue setWantsLayer:YES];
+
+	
+}
+
 -(id)init
 {
 		
-	if ( self = [super init]) {
-	
-		CidrtostrTransformer *c2str;
+	if ( self = [super init]) 
+	{
+		cidr = 24;	
+		monsubnet = [[NSIpSubnetv4 alloc]init];
 		
-		// create an autoreleased instance of our value transformer
-		c2str = [[[CidrtostrTransformer alloc] init] autorelease];
-		
-		// register it with the name that we refer to it with
-		[NSValueTransformer setValueTransformer:c2str forName:@"CidrtostrTransformer"];
-
-		[self setValue:[NSNumber numberWithInt:24]  forKey:@"cidr"];
-		
-		monIpdata = [[[NSIpSubnetv4 alloc] init]autorelease];
-		[monIpdata retain];
 	}
 	
 	return self;
 	
 }
 
+-(IBAction) Calculate:(id)sender
+{
 
--(IBAction) Calculate:(id)sender{
-
+	
+	
+	//On valide les formats, on avertit en cas de soucis et on annule
+	if (![NSIpSubnetv4 checkCidr:[Tmask intValue]])
+	{
+		[[NSAlert alertWithMessageText:NSLocalizedStringFromTable(@"WRONG_MASK",@"local",@"Le masque est incorrecte")
+					defaultButton:@"Ok" 
+					alternateButton:nil
+					otherButton:nil 
+					informativeTextWithFormat:NSLocalizedStringFromTable(@"MASK_BETWEEN",@"local",@"Une valeur entre 0 et 32")
+					]
+			runModal] ; 
+		return;
+		
+	}
+	if (![NSIpv4 checkIPStr:[Tipaddr stringValue]])
+	{
+		[[NSAlert alertWithMessageText:NSLocalizedStringFromTable (@"WRONG_IP",@"local",@"L'adresse Ip est incorrecte")
+						 defaultButton:@"Ok" alternateButton:nil otherButton:nil informativeTextWithFormat:@""]
+		 runModal] ; 
+		return;
+		
+	}
+		
 	//On envoie les data au NSIpSubnet
+		
+	[monsubnet setsubfromip:[NSIpv4 IpStringToInteger:[Tipaddr stringValue]] mask:[Tmask integerValue]];
 	
+	[TPnet setStringValue:[monsubnet sub]];
+	[TPmask setStringValue:[monsubnet cidrtoString]];
+	[TPfirst setStringValue:[[[[NSIpv4 alloc] initwithint:[monsubnet firstIp]] autorelease] iptoString ]];
+	[TPLast setStringValue:[[[[NSIpv4 alloc] initwithint:[monsubnet LastIp]] autorelease] iptoString ]];
+	[Tbroadcast setStringValue:[[[[NSIpv4 alloc] initwithint:[monsubnet broadcast]] autorelease] iptoString ]];
+	[TPSize setStringValue:[NSString stringWithFormat:@"%d",[monsubnet NumberofIp]]]; 
 	
-	[monIpdata setsub:[NSIpv4 IpStringToInteger:[Tipaddr stringValue]] mask:[Tmask integerValue]];
-	
-	//checl l'addip
-
+	// On redimensionne la fenetre
 	
 	NSRect frame = [mawin frame];
 	frame.size.height=194;
 	
 	[mawin setFrame:frame display:TRUE animate:TRUE ];
-	frame = [resultbox frame];
+	frame = [monsubnetprint frame];
 	frame.origin.x = 17;
 	
 	frame.origin.y = 8;
-	[resultbox setFrame:frame];
-	[[mavue animator] replaceSubview:ipbox with:resultbox];
+	[monsubnetprint setFrame:frame];
+	[[mavue animator] replaceSubview:monsubnetsaisie with:monsubnetprint];
 
 	
-	//[Bretour setHidden:FALSE];
+	//On calcul les resultats :
 	
-	
+
+
+		
 	return;
-	
-	
 }
 
--(IBAction) refreshmask:(id)sender
+-(IBAction) mesPrefs:(id)sender
 {
-
-}
-						
--(IBAction) decCidr:(id)sender
-{
-	NSInteger value= [Tmask intValue];
-	if ((value >1) & (value <32)){
-		value--;
-	} else {
-		value = 0;
+	if (mawinpref == nil)
+	{
+		mawinpref = [[Preference alloc] init];
 	}
-	[Tmask setIntValue:value];
+	[mawinpref showWindow:self];
+}
+
+-(IBAction) about:(id)sender
+{
+	if (maaboutwin == nil)
+	{
+		maaboutwin = [[AboutWin alloc] init];
+	}
+	[maaboutwin showWindow:self];
+	
 	
 }
--(IBAction) checkIp:(id)sender
-{
-	if ([NSIpv4 checkIPStr:[Tipaddr stringValue]]) {
-		
-		NSLog (@"L'ip est bonne");
-		[Tipaddr setBackgroundColor:[NSColor greenColor ]];
-		
-	}else {
-		[Tipaddr setBackgroundColor:[NSColor redColor ]];
 
-	}
-
-	NSLog (@"L'ip est de retour");
-
-}
-@synthesize cidr;
 @end

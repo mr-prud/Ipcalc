@@ -1,0 +1,10 @@
+/* 
+   local.strings
+   ipCalc for Mac
+
+   Created by Gaël Prudhomme on 11/09/10.
+   Copyright 2010 __MyCompanyName__. All rights reserved.
+ */
+"WRONG_MASK" = "Le masque est incorrecte";
+"WRONG_IP" = "L'adresse Ip est incorrecte";
+"MASK_BETWEEN"= "Une valeur entre 0 et 32";

@@ -10,31 +10,31 @@
 
 
 @interface NSIpv4 : NSObject {
-	NSInteger ip:32;
+	int ip:32;
 
 }
 
 -(id)init;
 -(id)initwithString:(NSString *)stringValue;
--(id)initwithint:(NSInteger)intValue;
+-(id)initwithint:(int)intValue;
 
 
 
 //Class Method
 +(Boolean)checkIPStr:(NSString *)string;
-+(Boolean)checkIPInt:(NSInteger)value;
++(Boolean)checkIPInt:(int)value;
 
 
-+(NSInteger)IpStringToInteger:(NSString *)string;
++(int)IpStringToInteger:(NSString *)string;
 
 //Instance Method
--(void)setIpwithInt:(NSInteger)value;
+-(void)setIpwithInt:(int)value;
 -(void)setIpwithString:(NSString *)value;
 
 
 
 -(NSString *)iptoString;
--(NSInteger)ip;
+-(int)ip;
 
 
 
