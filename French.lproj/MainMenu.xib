@@ -627,7 +627,7 @@
 						<object class="NSMenu" key="NSSubmenu" id="540936750">
 							<string key="NSTitle">Fichier</string>
 							<array class="NSMutableArray" key="NSMenuItems">
-								<object class="NSMenuItem" id="706621161">
+								<object class="NSMenuItem" id="107219325">
 									<reference key="NSMenu" ref="540936750"/>
 									<bool key="NSIsDisabled">YES</bool>
 									<bool key="NSIsSeparator">YES</bool>
@@ -638,7 +638,7 @@
 									<reference key="NSOnImage" ref="464521152"/>
 									<reference key="NSMixedImage" ref="372032806"/>
 								</object>
-								<object class="NSMenuItem" id="842939999">
+								<object class="NSMenuItem" id="396183245">
 									<reference key="NSMenu" ref="540936750"/>
 									<string key="NSTitle">Quitter</string>
 									<string key="NSKeyEquiv">q</string>
@@ -1055,7 +1055,7 @@
 					<object class="IBActionConnection" key="connection">
 						<string key="label">terminate:</string>
 						<reference key="source" ref="1050"/>
-						<reference key="destination" ref="842939999"/>
+						<reference key="destination" ref="396183245"/>
 					</object>
 					<int key="connectionID">1021</int>
 				</object>
@@ -1567,8 +1567,8 @@
 						<int key="objectID">845</int>
 						<reference key="object" ref="540936750"/>
 						<array class="NSMutableArray" key="children">
-							<reference ref="842939999"/>
-							<reference ref="706621161"/>
+							<reference ref="396183245"/>
+							<reference ref="107219325"/>
 						</array>
 						<reference key="parent" ref="627603253"/>
 						<string key="objectName">Fichier</string>
@@ -1611,12 +1611,12 @@
 					</object>
 					<object class="IBObjectRecord">
 						<int key="objectID">1019</int>
-						<reference key="object" ref="842939999"/>
+						<reference key="object" ref="396183245"/>
 						<reference key="parent" ref="540936750"/>
 					</object>
 					<object class="IBObjectRecord">
 						<int key="objectID">1020</int>
-						<reference key="object" ref="706621161"/>
+						<reference key="object" ref="107219325"/>
 						<reference key="parent" ref="540936750"/>
 					</object>
 				</array>

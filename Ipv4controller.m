@@ -89,7 +89,7 @@
 	// On redimensionne la fenetre
 	
 	NSRect frame = [mawin frame];
-	frame.size.height=194;
+	frame.size.height=294;
 	
 	[mawin setFrame:frame display:TRUE animate:TRUE ];
 	frame = [monsubnetprint frame];
@@ -97,7 +97,8 @@
 	
 	frame.origin.y = 8;
 	[monsubnetprint setFrame:frame];
-	[[mavue animator] replaceSubview:monsubnetsaisie with:monsubnetprint];
+	//[[mavue animator] replaceSubview:monsubnetsaisie with:monsubnetprint];
+	[[mavue animator] addSubview:monsubnetprint];
 
 	
 	//On calcul les resultats :

@@ -1,11 +1,12 @@
 
 
-v0.11
+v0.1.1
 --------
 + Bug fixed on 32 bits arch
 - Add Custom about win
 - Add Pref win
 - Add defaults pref, and user pref
+- Change subnet view transition from "replace" to "add"
 
 V0.1
 ----------
