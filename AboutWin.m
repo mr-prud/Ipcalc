@@ -21,7 +21,7 @@
 
 -(void)windowDidLoad
 {
-	NSString * tempstr = [[NSString alloc]initWithString:[Tversion stringValue]];
+	NSString * tempstr = [[[NSString alloc]initWithString:[Tversion stringValue]]autorelease ];
 	
 	[Tversion setStringValue:[NSString stringWithFormat:tempstr, [[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleGetInfoString"],[[[NSBundle mainBundle]infoDictionary]objectForKey:@"CFBundleShortVersionString"]]];
 

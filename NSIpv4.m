@@ -17,7 +17,11 @@
 //*************
 -(id) init
 {
-	return [self initwithint:0];
+	if (self = [super init])
+	{
+		ip = 0;
+	}
+	return self;
 }
 
 -(id)initwithString:(NSString *)stringValue
@@ -109,6 +113,23 @@
 			,((ip & 0xff00) >> 8)
 			,(ip & 0xff)];
 }
+
++(NSString *)NumIptoString:(int)value
+
+{
+	if ((value <=0) || (value<= 0xffffffff))
+	{
+			return [NSString stringWithFormat:@"%d.%d.%d.%d",((value & 0xff000000) >> 24)
+			,((value & 0xff0000) >> 16)
+			,((value & 0xff00) >> 8)
+			,(value & 0xff)];
+	}
+	else {
+		return NULL;
+	}
+
+	}
+
 
 -(int)ip
 {

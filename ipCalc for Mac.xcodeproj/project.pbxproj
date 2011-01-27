@@ -328,7 +328,7 @@
 /* Begin PBXShellScriptBuildPhase section */
 		334371AB124F7A8100E72DB7 /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
+			buildActionMask = 12;
 			files = (
 			);
 			inputPaths = (
@@ -339,7 +339,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "set -ex\n\nVERSION=$(/usr/libexec/PlistBuddy  -c \"print CFBundleShortVersionString\" \"$BUILT_PRODUCTS_DIR/$PROJECT_NAME.app/Contents/Info.plist\")\n\n\n[ \"$ACTION\" = build ] || exit 0\n[ \"$BUILD_VARIANTS\" = \"normal\" ] || exit 0\n\ndir=\"$TEMP_FILES_DIR/disk\"\n\n#VERSION=$(defaults read \"$BUILT_PRODUCTS_DIR/$PROJECT_NAME.app/Contents/Info\" CFBundleVersion)\n\necho $VERSION\n\ndmg=\"$BUILT_PRODUCTS_DIR/$PROJECT_NAME-$MACOSX_DEPLOYMENT_TARGET--$VERSION.dmg\"\n\n\nrm -rf \"$dir\"\ncp -r \"$SRCROOT\"/disk-dir \"$dir\"\ncp -R \"$BUILT_PRODUCTS_DIR/$PROJECT_NAME.app\" \"$dir\"\nln -s /Applications \"$dir\"\nrm -f \"$dmg\"\nhdiutil create -srcfolder \"$dir\" -volname \"$PROJECT_NAME\" \"$dmg\"\nhdiutil internet-enable -yes \"$dmg\"\n#rm -rf \"$dir\"\n";
+			shellScript = "set -ex\n\nVERSION=$(/usr/libexec/PlistBuddy  -c \"print CFBundleShortVersionString\" \"$BUILT_PRODUCTS_DIR/$PROJECT_NAME.app/Contents/Info.plist\")\n\n[ \"$ACTION\" = build ] || exit 0\n[ \"$BUILD_VARIANTS\" = \"debug\" ] || exit 0\n\ndir=\"$TEMP_FILES_DIR/disk\"\n\n#VERSION=$(defaults read \"$BUILT_PRODUCTS_DIR/$PROJECT_NAME.app/Contents/Info\" CFBundleVersion)\n\necho $VERSION\n\ndmg=\"$BUILT_PRODUCTS_DIR/$PROJECT_NAME-$MACOSX_DEPLOYMENT_TARGET--$VERSION.dmg\"\n\n\nrm -rf \"$dir\"\ncp -r \"$SRCROOT\"/disk-dir \"$dir\"\ncp -R \"$BUILT_PRODUCTS_DIR/$PROJECT_NAME.app\" \"$dir\"\nln -s /Applications \"$dir\"\nrm -f \"$dmg\"\nhdiutil create -srcfolder \"$dir\" -volname \"$PROJECT_NAME\" \"$dmg\"\nhdiutil internet-enable -yes \"$dmg\"\n#rm -rf \"$dir\"\n";
 		};
 		33B99C47125A76EB002A89C4 /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;

@@ -15,7 +15,12 @@
 
 -(id)init
 {
-	return [self initwithsub:0 cidr:0];
+	if (self = [super init])
+	{
+		mask = 0;
+		ip = [[NSIpv4 alloc] init];
+	}
+	return self;
 }
 
 -(id)initwithsub:(int)value cidr:(int)cidrvalue
@@ -23,10 +28,17 @@
 	if (self = [super init])
 	{
 		mask = cidrvalue;
-		ip = [[NSIpv4 alloc] init];
+		ip = [[[NSIpv4 alloc] initwithint:value]autorelease ];
 	}
 	return self;
 }
+
+-(void)dealloc 
+{ 
+	[ip release];
+	[super dealloc];
+}
+
 
 -(void)setcidr:(int)value
 {
@@ -74,9 +86,9 @@
 
 +(int)masktoint:(int)value
 {
-	int i,debut;
+	int i,debut=0,tmpdebut;
 	
-	for (i=1;i<value;i++,debut = (debut >> 1) | 2147483648);
+	for (i=1;i<value;i++,tmpdebut=debut,debut = (tmpdebut >> 1) | 2147483648);
 	return debut;
 }
 

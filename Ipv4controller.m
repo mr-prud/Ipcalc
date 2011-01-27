@@ -81,9 +81,9 @@
 	
 	[TPnet setStringValue:[monsubnet sub]];
 	[TPmask setStringValue:[monsubnet cidrtoString]];
-	[TPfirst setStringValue:[[[[NSIpv4 alloc] initwithint:[monsubnet firstIp]] autorelease] iptoString ]];
-	[TPLast setStringValue:[[[[NSIpv4 alloc] initwithint:[monsubnet LastIp]] autorelease] iptoString ]];
-	[Tbroadcast setStringValue:[[[[NSIpv4 alloc] initwithint:[monsubnet broadcast]] autorelease] iptoString ]];
+	[TPfirst setStringValue:[NSString stringWithString:[NSIpv4 NumIptoString:[monsubnet firstIp]]]];
+	[TPLast setStringValue:[NSString stringWithString:[NSIpv4 NumIptoString:[monsubnet LastIp]]]];
+	[Tbroadcast setStringValue:[NSString stringWithString:[NSIpv4 NumIptoString:[monsubnet broadcast]]]];
 	[TPSize setStringValue:[NSString stringWithFormat:@"%d",[monsubnet NumberofIp]]]; 
 	
 	// On redimensionne la fenetre
