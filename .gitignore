@@ -2,6 +2,7 @@
 build/*
 *.pbxuser
 *.mode1v3
+*.mode2v3
 
 # old skool
 .svn
@@ -9,3 +10,5 @@ build/*
 # osx noise
 .DS_Store
 profile
+ipCalc\ for\ Mac.xcodeproj/xcuserdata/*
+ipCalc\ for\ Mac.xcodeproj/project.xcworkspace/xcuserdata/*
