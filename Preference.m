@@ -24,7 +24,7 @@
 -(void)windowDidLoad
 {
 	[Tmaskdefaut setIntValue:[self maskdefault]];
-}  
+}
 
 -(IBAction)Maskchange:(id)sender
 {
